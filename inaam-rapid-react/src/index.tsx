@@ -1,13 +1,14 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+/**
+ * @class ExampleComponent
+ */
+
+import * as React from 'react'
 
 import styles from './styles.css'
 
-export default class ExampleComponent extends Component {
-  static propTypes = {
-    text: PropTypes.string
-  }
+export type Props = { text: string }
 
+export default class ExampleComponent extends React.Component<Props> {
   render() {
     const {
       text
