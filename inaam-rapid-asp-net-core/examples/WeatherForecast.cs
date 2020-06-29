@@ -1,6 +1,6 @@
 using System;
 
-namespace inaam_rapid_asp_net_core
+namespace examples
 {
     public class WeatherForecast
     {

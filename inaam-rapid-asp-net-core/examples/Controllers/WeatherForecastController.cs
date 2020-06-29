@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace inaam_rapid_asp_net_core.Controllers
+namespace examples.Controllers
 {
     [ApiController]
     [Route("[controller]")]

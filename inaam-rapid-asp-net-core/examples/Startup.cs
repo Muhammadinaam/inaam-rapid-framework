@@ -2,15 +2,21 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using examples.Models;
+using examples.Rapid;
+using inaam_rapid_asp_net_core.Form;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace inaam_rapid_asp_net_core
+namespace examples
 {
     public class Startup
     {
@@ -24,6 +30,8 @@ namespace inaam_rapid_asp_net_core
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IForm, MyForm>();
+            services.AddDbContext<MainDbContext>(opts => opts.UseSqlServer(Configuration.GetConnectionString("MainDb")));
             services.AddControllers();
         }
 
@@ -34,6 +42,8 @@ namespace inaam_rapid_asp_net_core
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseHttpsRedirection();
 
             app.UseRouting();
 

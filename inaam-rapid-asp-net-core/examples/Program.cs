@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace inaam_rapid_asp_net_core
+namespace examples
 {
     public class Program
     {
